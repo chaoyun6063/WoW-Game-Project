@@ -12,12 +12,12 @@ class Arena:
     def print_state(self):
         print("~"*15)
         # print team A
-        print(("TEAM A").center("~"))
+        print(("TEAM A").center(15, "~"))
         for character in self.team_A:
             character.print()
 
         # print team B
-        print(("TEAM B").center("~"))
+        print(("TEAM B").center(15, "~"))
         for character in self.team_B:
             character.print()
 
