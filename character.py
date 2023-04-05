@@ -1,6 +1,6 @@
 from random import randrange
 
-
+# define class Character
 class Character:
     # initialize class
     def __init__(self, character_name, attack_speed = 2, delay = 0):
