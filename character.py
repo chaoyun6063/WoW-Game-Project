@@ -1,3 +1,4 @@
+#imports
 from random import randrange
 
 # define class Character
@@ -11,7 +12,8 @@ class Character:
 
     # methods
     def attack(self):
-        self.delay = 10 - self.attack_speed
+        self.delay = 5 - self.attack_speed
+        return randrange(3, 11)
 
     def is_dead(self):
         return self.health <= 0

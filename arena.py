@@ -1,5 +1,11 @@
+# imports
 from character import Character
 from random import randrange
+
+# globals
+layout_char = '~' # char used for they layout
+layout_chars = 30 # length
+
 
 # define class Arena
 class Arena:
@@ -10,24 +16,24 @@ class Arena:
 
     # methods
     def print_state(self):
-        print("~"*15)
+        print(layout_char*layout_chars)
         # print team A
-        print(("TEAM A").center(15, "~"))
+        print(("TEAM A").center(layout_chars, layout_char))
         for character in self.team_A:
             character.print()
 
         # print team B
-        print(("TEAM B").center(15, "~"))
+        print(("TEAM B").center(layout_chars, layout_char))
         for character in self.team_B:
             character.print()
 
-        print("~"*15)
+        print(layout_char*layout_chars)
 
     def play(self):
         time = -1   # unit to control time
         while True:
             time += 1 # increase after each round
-            print("~"*15)
+            print(layout_char*layout_chars)
             print("Time = " + str(time))
 
             self.print_state()
@@ -47,9 +53,9 @@ class Arena:
             for character in chars_to_play:
                 attacking = character[1]
                 if character[0] == 'A':
-                    defending = randrange(len(self.team_B))
+                    defending = self.team_B[randrange(len(self.team_B))]
                 else: # character is in team B
-                    defending = randrange(len(self.team_A))
+                    defending = self.team_A[randrange(len(self.team_A))]
 
                 # attacking deals damage to defending thus decreases their health
                 damage = attacking.attack()
